@@ -69,9 +69,7 @@ class MQTTExampleState extends State<MQTTExample>{
     client.updates.listen((List<MqttReceivedMessage<MqttMessage>> c) {
       final MqttPublishMessage message = c[0].payload;
       final payload = MqttPublishPayload.bytesToStringAsString(message.payload.message);
-
       UpdateUI("Message Arrived : "+c[0].topic.toString()+" -> "+payload.toString());
-
       print(LOGTAG+'Received message:$payload from topic: ${c[0].topic}>');
     });
 
@@ -82,7 +80,6 @@ class MQTTExampleState extends State<MQTTExample>{
   */
   void publishString(String data)
   {
-
     /*
          Checks if MQTT is connected and TextInput contains non empty String
     */
